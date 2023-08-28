@@ -3,13 +3,18 @@ import colors from "./colors";
 
 const styles = (theme) => {
   return {
+    circularCard: {
+      margin: '40px',
+      height:'400px', 
+      width:'400px'
+  },
     landingNavbar:{
       color: colors.pastel.dgreen,
   },
     landingButton:{
       my: 2, 
       color: colors.pastel.dpurple, 
-      display: 'block',
+      display: 'block'
     },
     whiteHero:{
         backgroundColor: colors.background.default,

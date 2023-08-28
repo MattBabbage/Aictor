@@ -13,9 +13,14 @@ const ThirdHero = () => {
 
   return (
     <Box className={classes.whiteHero}>
-    <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-        Fair trade shit
-    </Typography>
+        <Box>
+            <Typography variant="h3" align="left" color="textPrimary" gutterBottom>
+                Fair Trade Shit
+            </Typography>
+            <Typography variant="h5" align="left" color="textPrimary" gutterBottom>
+                Allowing creators to leverage technology, 50/50 split
+            </Typography>
+        </Box>
     <Handshake/>
     <div>
         <Grid container spacing={2} justifyContent="center">

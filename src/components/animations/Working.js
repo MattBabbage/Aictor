@@ -10,7 +10,7 @@ export default function Working() {
         loop
         animationData={lottieJson}
         play
-        style={{ width: 400, height: 400 }}
+        style={{ width: 250, height: 250 }}
       />
     )
   }

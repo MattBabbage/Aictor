@@ -2,9 +2,9 @@
 
 import React, { Component } from 'react';
 import Lottie from 'react-lottie-player'
-import lottieJson from '../animations/jsons/recording.json'
+import lottieJson from '../animations/jsons/ai.json'
 
-export default function Create() {
+export default function AIBot() {
     return (
       <Lottie
         loop

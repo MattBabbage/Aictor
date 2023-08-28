@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Grid, Typography, Button, Box, Container } from '@mui/material';
+import { Grid, Typography, Button, Box, Container, Avatar } from '@mui/material';
 
 import useStyles from '../../styles';
 // import AnimationPage from 'layouts/animations/AnimationPage';
@@ -7,6 +7,10 @@ import { Padding } from '@mui/icons-material';
 
 
 import Create from '../animations/Create';
+import AIBot from '../animations/AIBot';
+import Working from '../animations/Working';
+
+import MultipleStopIcon from '@mui/icons-material/MultipleStop';
 
 const Hero = () => {
   const classes = useStyles();
@@ -14,24 +18,29 @@ const Hero = () => {
 
   return (
     <Box className={classes.purpleHero} >
-        <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-            Platform Capabilites
-        </Typography>
-        <Create/>
-        <div>
-            <Grid container spacing={2} justifyContent="center">
-                <Grid item>
-                    <Button variant="contained" className={classes.landingButton}>
-                        Create a Voice
-                    </Button>
-                </Grid>
-                <Grid item>
-                    <Button variant="contained" className={classes.landingButton}>
-                        Buy a voice
-                    </Button>
-                </Grid>
-            </Grid>
-        </div>
+        
+        <Box>
+            <Typography variant="h3" align="left" color="textPrimary" gutterBottom>
+            Creator Centric
+            </Typography>
+            <Typography variant="h5" align="left" color="textPrimary" gutterBottom>
+                We connect Creators to Tools and to Customers
+            </Typography>
+        </Box>
+        
+        <Avatar className={classes.circularCard} style={{height:'300px', width:'300px', backgroundColor:'#FFFFFF'}}>
+            <AIBot/>
+        </Avatar>
+        <MultipleStopIcon sx={{color:'#FFFFFF'}}/>
+        <Avatar className={classes.circularCard} style={{height:'300px', width:'300px', backgroundColor:'#FFFFFF'}}>
+            <Create/>
+        </Avatar>
+        <MultipleStopIcon sx={{color:'#FFFFFF'}}/>
+        <Avatar className={classes.circularCard} style={{height:'300px', width:'300px', backgroundColor:'#FFFFFF'}}>
+            <Working/>  
+        </Avatar>
+        
+        
     </Box>
 
 

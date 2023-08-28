@@ -12,9 +12,14 @@ const FourthHero = () => {
 
   return (
     <Box className={classes.greenHero} >
-    <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-        Save Time & Money
-    </Typography>
+        <Box>
+            <Typography variant="h3" align="left" color="textPrimary" gutterBottom>
+                Save business money
+            </Typography>
+            <Typography variant="h5" align="left" color="textPrimary" gutterBottom>
+                Using Automation allows for lower prices for businesses
+            </Typography>
+        </Box>
     <Working/>
     <div>
         <Grid container spacing={2} justifyContent="center">
