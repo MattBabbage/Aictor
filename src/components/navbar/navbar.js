@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import useStyles from '../../styles';
 import { Dashboard } from '@mui/icons-material';
-
+import { Link } from "react-router-dom";
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -132,9 +132,11 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-                <Button variant="contained" startIcon={<Dashboard />}> 
-                    Dashboard
-                </Button>
+            <Link to="/dashboard">
+              <Button variant="contained" startIcon={<Dashboard />}> 
+                        Dashboard
+                    </Button>
+            </Link>
           </Box>
         </Toolbar>
       </Container>

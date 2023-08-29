@@ -4,11 +4,21 @@ import { Button, Typography, AppBar, Card, CardActions, CardContent, CardMedia, 
 import useStyles from "./styles";
 import { ThemeProvider } from "@mui/material/styles";
 
-import ResponsiveAppBar from "./components/navbar/navbar";
+
 import Landing from "./layouts/landing";
 import colors from "./colors";
 import { createTheme } from '@mui/material/styles';
 import { green, purple } from '@mui/material/colors';
+
+import { Route, Routes, Link } from "react-router-dom"
+import Dashboard from "./layouts/dashboard";
+
+const envVariables = process.env;
+const {
+  CLIENTID,
+  DOMAIN
+} = envVariables;
+
 
 const App = () => {
     const classes = useStyles();
@@ -23,21 +33,16 @@ const App = () => {
         },
       });
     return (
-        <>
-        <ThemeProvider theme={theme}>
-        <CssBaseline>
-                <ResponsiveAppBar/>
-            </CssBaseline>
+      <>
+      <ThemeProvider theme={theme}>
+      <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/dashboard" element={ <Dashboard /> } />
+        </Routes>
+      </ThemeProvider>
 
+      </>
 
-           
-            <main>
-                <div className={classes.container}>
-                    <Landing/>
-                </div>
-            </main>
-        </ThemeProvider>
-        </>
     )
 
 }

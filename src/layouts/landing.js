@@ -12,6 +12,8 @@ import TopVectorPurple from '../assets/topvectorpurple.svg';
 import BotVectorPurple from '../assets/botvectorshort.svg';
 import BotVectorGreen from '../assets/botvectorgreen.svg';
 
+import ResponsiveAppBar from "../components/navbar/navbar";
+
 export default function Landing() {
   const classes = useStyles();
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
@@ -36,6 +38,10 @@ export default function Landing() {
 }, [screenSize])
   return (
         <div>
+            <CssBaseline>
+                <ResponsiveAppBar/>
+            </CssBaseline>
+
             <img style={{ width: screenSize.width, marginBottom: "-10px"  }} src={TopVectorGreen} alt="React Logo" />
             <FirstHero/>
             <img style={{ width: screenSize.width, marginBottom: "-10px" }} src={BotVectorPurple} alt="React Logo" />
