@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import useStyles from '../../styles';
+import useStyles from '../../style/styles';
 import { Dashboard } from '@mui/icons-material';
 import { Link } from "react-router-dom";
 

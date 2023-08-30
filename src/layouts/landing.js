@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react'
-import useStyles from '../styles';
+import useStyles from '../style/styles';
 import { Button, Typography, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container } from "@mui/material";
 import FirstHero from '../components/hero/firsthero';
 import SecondHero from '../components/hero/secondhero';
@@ -41,7 +41,7 @@ export default function Landing() {
             <CssBaseline>
                 <ResponsiveAppBar/>
             </CssBaseline>
-
+            
             <img style={{ width: screenSize.width, marginBottom: "-10px"  }} src={TopVectorGreen} alt="React Logo" />
             <FirstHero/>
             <img style={{ width: screenSize.width, marginBottom: "-10px" }} src={BotVectorPurple} alt="React Logo" />

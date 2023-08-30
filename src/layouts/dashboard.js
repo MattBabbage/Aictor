@@ -17,16 +17,21 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+
+import Loading from './dashboard/Loading';
+
 import { mainListItems, secondaryListItems, tertiaryListItems } from './dashboard/listitems';
-import { useAuth0 } from '@auth0/auth0-react';
-import colors from '../colors';
-import useStyles from '../styles';
-import AuthenticationButton from '../auth/authentication-button';
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import colors from '../style/colors';
+import useStyles from '../style/styles';
+import LoginButton from '../components/auth/loginbutton';
+import LogoutButton from '../components/auth/logoutbutton';
 
 import Profile from './dashboard/profile';
 import CreateVoice from './dashboard/createvoice';
 import Create from '../components/animations/Create';
 import { Outlet } from 'react-router-dom';
+import Landing from './landing';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -103,29 +108,15 @@ const defaultTheme = createTheme({
   },
 });
 
-export default function Dashboard() {
 
+const  Dashboard = () => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
-
-  const LoginButton = () => {
-    const { loginWithRedirect } = useAuth0();
   
-    return <button onClick={() => loginWithRedirect()}>Log In</button>;
-  };
-
-  const LogoutButton = () => {
-    const { logout } = useAuth0();
-  
-    return (
-      <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin + "/dashboard" } })}>
-        Log Out
-      </button>
-    );
-  };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -158,9 +149,8 @@ export default function Dashboard() {
             >
               Dashboard
             </Typography>
-            <AuthenticationButton/>
-            
-            
+            <LoginButton/>
+            <LogoutButton/>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
@@ -196,3 +186,12 @@ export default function Dashboard() {
     </ThemeProvider>
   );
 }
+
+
+export default withAuthenticationRequired(Dashboard, {
+  onRedirecting: () =>  <ThemeProvider theme={defaultTheme}>
+  <Box sx={{ display: 'flex' }}>
+      <Loading/>
+  </Box>
+</ThemeProvider>,
+});

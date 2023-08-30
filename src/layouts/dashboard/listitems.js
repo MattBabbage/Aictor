@@ -22,20 +22,13 @@ export const mainListItems = (
     <ListSubheader component="div" inset>
       Account
     </ListSubheader>
-    <ListItemButton>
+    <ListItemButton component={Link} to="profile">
       <ListItemIcon>
         <PersonIcon />
       </ListItemIcon>
-      <Link to="profile">Profile</Link>
       <ListItemText primary="Profile" />
     </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Your Sales" />
-    </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="details">
       <ListItemIcon>
         <ManageAccountsIcon />
       </ListItemIcon>
@@ -47,19 +40,25 @@ export const mainListItems = (
 export const secondaryListItems = (
   <React.Fragment>
     <ListSubheader component="div" inset>
-      Voice Creation
+      Your Voices
     </ListSubheader>
-    <ListItemButton>
+    <ListItemButton component={Link} to="createvoice">
       <ListItemIcon>
         <RecordVoiceOverIcon />
       </ListItemIcon>
       <ListItemText primary="Create Voice" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="uservoices">
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Your Voices" />
+    </ListItemButton>
+    <ListItemButton component={Link} to="usersales">
+      <ListItemIcon>
+        <BarChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Your Sales" />
     </ListItemButton>
   </React.Fragment>
 );
@@ -69,19 +68,19 @@ export const tertiaryListItems = (
     <ListSubheader component="div" inset>
       Purchase Voices
     </ListSubheader>
-    <ListItemButton>
+    <ListItemButton component={Link} to="voices">
       <ListItemIcon>
         <RecordVoiceOverIcon />
       </ListItemIcon>
       <ListItemText primary="Voices" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="actors">
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Actors" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="usage">
       <ListItemIcon>
         <HistoryIcon />
       </ListItemIcon>

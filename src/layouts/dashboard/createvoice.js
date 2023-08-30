@@ -18,9 +18,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useAuth0 } from '@auth0/auth0-react';
-import colors from '../../colors';
-import useStyles from '../../styles';
-
+import colors from '../../style/colors';
+import useStyles from '../../style/styles';
 
 
 
@@ -52,7 +51,7 @@ const defaultTheme = createTheme({
 });
 
 export default function CreateVoice() {
-
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const classes = useStyles();
 
   return (
@@ -82,6 +81,7 @@ export default function CreateVoice() {
             }}
           >
             Create Voice
+            {user.name}
           </Paper>
         </Grid>
       </Grid>

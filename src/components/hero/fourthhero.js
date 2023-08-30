@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Grid, Typography, Button, Box, Container } from '@mui/material';
 
-import useStyles from '../../styles';
+import useStyles from '../../style/styles';
 // import AnimationPage from 'layouts/animations/AnimationPage';
 import { Padding } from '@mui/icons-material';
 import Working from '../animations/Working';
