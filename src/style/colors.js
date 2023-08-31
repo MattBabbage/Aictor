@@ -21,7 +21,7 @@ const colors = {
     lpurple: "#B3B6E3",
     dpurple: "#34113F",
     lgreen: "#CEF5D3",
-    dpurple: "#1F271B",
+    dgreen: "#1F271B",
     peach: "#DE7954",
     red: "#FF0022",
     blue: "#3D3B8E",

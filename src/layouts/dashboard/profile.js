@@ -20,7 +20,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useAuth0 } from '@auth0/auth0-react';
 import colors from '../../style/colors';
 import useStyles from '../../style/styles';
-
+import { Avatar } from '@mui/material';
 
 
 function Copyright(props) {
@@ -113,6 +113,7 @@ export default function Profile() {
                 height: 240,
               }}
             >
+              <Avatar alt="Remy Sharp" src={user.picture} />
               Authenticated!
               {user.email}
             </Paper>
