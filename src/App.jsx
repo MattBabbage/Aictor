@@ -47,7 +47,7 @@ const App = () => {
             <Route path="createvoice" element={<CreateVoice />} />
             <Route path="*" element={<Profile />} />
           </Route>
-        </Routes>
+      </Routes>
       </ThemeProvider>
 
       </>
