@@ -40,6 +40,7 @@ const App = () => {
       <ThemeProvider theme={theme}>
       <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Landing />} />
           <Route path="/dashboard" element={ <Dashboard /> }>
             <Route index element={<Profile />} />
             <Route path="profile" element={<Profile />} />
