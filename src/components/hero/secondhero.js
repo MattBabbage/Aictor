@@ -10,6 +10,8 @@ import Create from '../animations/Create';
 import AIBot from '../animations/AIBot';
 import Working from '../animations/Working';
 
+import { Stack } from '@mui/material';
+
 import MultipleStopIcon from '@mui/icons-material/MultipleStop';
 
 const Hero = () => {
@@ -18,8 +20,11 @@ const Hero = () => {
 
   return (
     <Box className={classes.purpleHero} >
-        
-        <Box>
+        <Stack
+  direction={{ xs: 'column', sm: 'row' }}
+  spacing={{ xs: 1, sm: 2, md: 4 }}
+>
+<Box>
             <Typography variant="h3" align="left" color="textPrimary" gutterBottom>
             Creator Centric
             </Typography>
@@ -27,20 +32,18 @@ const Hero = () => {
                 We connect Creators to Tools and to Customers
             </Typography>
         </Box>
-        
         <Avatar className={classes.circularCard} style={{height:'300px', width:'300px', backgroundColor:'#FFFFFF'}}>
             <AIBot/>
         </Avatar>
-        <MultipleStopIcon sx={{color:'#FFFFFF'}}/>
         <Avatar className={classes.circularCard} style={{height:'300px', width:'300px', backgroundColor:'#FFFFFF'}}>
             <Create/>
         </Avatar>
-        <MultipleStopIcon sx={{color:'#FFFFFF'}}/>
         <Avatar className={classes.circularCard} style={{height:'300px', width:'300px', backgroundColor:'#FFFFFF'}}>
             <Working/>  
         </Avatar>
-        
-        
+</Stack>
+
+    
     </Box>
 
 

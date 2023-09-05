@@ -20,8 +20,9 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useAuth0 } from '@auth0/auth0-react';
 import colors from '../../style/colors';
 import useStyles from '../../style/styles';
-import { Avatar } from '@mui/material';
+import { Avatar, Stack } from '@mui/material';
 
+import ProfileInfo from './profile/profileinfo';
 
 function Copyright(props) {
   return (
@@ -48,82 +49,45 @@ const defaultTheme = createTheme({
   },
 });
 
+
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  height: 800,
+  lineHeight: '60px',
+}));
+
+
 export default function Profile() {
   const classes = useStyles();
   const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return       <Box
-      component="main"
-      sx={{
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'light'
-            ? theme.palette.grey[100]
-            : theme.palette.grey[900],
-        flexGrow: 1,
-        height: '100vh',
-        overflow: 'auto',
-      }}
-    >
-      <Toolbar />
-      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-        <Grid container spacing={3}>
-          {/* Chart */}
-          <Grid item xs={12} md={8} lg={9}>
-            <Paper
-              sx={{
-                p: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                height: 240,
-              }}
-            >
-              Not Authenticated
-            </Paper>
-          </Grid>
-        </Grid>
-        <Copyright sx={{ pt: 4 }} />
-      </Container>
-    </Box>;
-  }
+//   <Item elevation={2}>
+//   {`elevation=${2}`}
+// </Item>
   return (
-    isAuthenticated && (
-      <Box
-      component="main"
-      sx={{
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'light'
-            ? theme.palette.grey[100]
-            : theme.palette.grey[900],
-        flexGrow: 1,
-        height: '100vh',
-        overflow: 'auto',
-      }}
-    >
-      <Toolbar />
-      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-        <Grid container spacing={3}>
-          {/* Chart */}
-          <Grid item xs={12} md={8} lg={9}>
-            <Paper
-              sx={{
-                p: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                height: 240,
-              }}
-            >
-              <Avatar alt="Remy Sharp" src={user.picture} />
-              Authenticated!
-              {user.email}
-            </Paper>
-          </Grid>
-        </Grid>
-        <Copyright sx={{ pt: 4 }} />
-      </Container>
+    
+  <Grid container spacing={2} padding="30px" paddingTop="80px" sx={{backgroundColor:"#B3B6E3", height: '100vh'}}>
+    <Grid item xs={6} md={8}>
+      <Item>
+        <ProfileInfo/>
+        </Item>
+    </Grid>
+    <Grid item xs={6} md={4}>
+      <Item>
+      <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
+                    Voices
+      </Typography>
+      <Box sx={{ width: '100%' }}>
+      <Stack spacing={2}>
+        <Item>Item 1</Item>
+        <Item>Item 2</Item>
+        <Item>Item 3</Item>
+      </Stack>
     </Box>
-    )
-
+      </Item>
+    </Grid>
+  </Grid>
   );
 }
 

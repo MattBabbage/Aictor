@@ -10,7 +10,7 @@ import TopVectorGreen from '../../assets/topvectorshort.svg';
 import TopVectorPurple from '../../assets/topvectorpurple.svg';
 import BotVectorPurple from '../../assets/botvectorshort.svg';
 import BotVectorGreen from '../../assets/botvectorgreen.svg';
-
+import { Stack } from '@mui/material';
 import Speaking from '../animations/Speaking';
 
 const FirstHero = () => {
@@ -19,7 +19,11 @@ const FirstHero = () => {
 
   return (
     <Box className={classes.whiteHero}>
-        <Box>
+        <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        spacing={{ xs: 1, sm: 2, md: 4 }}
+        >
+                    <Box>
             <Typography variant="h2" align="left" color="textPrimary" gutterBottom>
             Welcome to Aictor
             </Typography>
@@ -41,8 +45,12 @@ const FirstHero = () => {
         </Grid>
     </div>
         </Box>
+        <Speaking/>
 
-    <Speaking/>
+        </Stack>
+
+
+    
 </Box>
   );
 };

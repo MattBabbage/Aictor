@@ -10,6 +10,7 @@ export default function Speaking() {
         loop
         animationData={lottieJson}
         play
+        
         style={{ width: 400, height: 400 }}
       />
     )
