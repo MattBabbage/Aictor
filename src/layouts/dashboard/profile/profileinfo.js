@@ -53,9 +53,12 @@ export default function ProfileInfo() {
   return (
     <Box padding={"30px"}>
       
-      <Stack spacing={2}>
+      <Stack spacing={2} >
       <Paper elevation={0}>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Stack
+          direction={{ xs: 'column', sm: 'row' }}
+          spacing={{ xs: 1, sm: 2, md: 4 }}
+        >
               <Grid xs={6}>
               <Paper  elevation={0}>
               <img src={user.picture}>
@@ -69,16 +72,17 @@ export default function ProfileInfo() {
               {user.email}
               </Paper>
               </Grid>
-            </Grid>
-          </Paper>
-        <Paper  elevation={0} >
-
+        </Stack>
 
         </Paper>
+
         <Divider/>
           <Paper elevation={0}>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-              <Grid xs={6}>
+            <Stack
+              direction={{ xs: 'column', sm: 'row' }}
+              spacing={{ xs: 1, sm: 2, md: 4 }}
+            >
+            <Grid xs={6}>
               <Paper  elevation={0}>
                   <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
                     5
@@ -98,7 +102,7 @@ export default function ProfileInfo() {
                   </Typography>
               </Paper>
               </Grid>
-            </Grid>
+        </Stack>
           </Paper>
         <Divider/>
         <Paper elevation={0}>

@@ -50,7 +50,7 @@ const defaultTheme = createTheme({
 });
 
 
-const Item = styled(Paper)(({ theme }) => ({
+const Item1 = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   textAlign: 'center',
   color: theme.palette.text.secondary,
@@ -58,6 +58,14 @@ const Item = styled(Paper)(({ theme }) => ({
   lineHeight: '60px',
 }));
 
+
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  height: 100,
+  lineHeight: '60px',
+}));
 
 export default function Profile() {
   const classes = useStyles();
@@ -69,12 +77,12 @@ export default function Profile() {
     
   <Grid container spacing={2} padding="30px" paddingTop="80px" sx={{backgroundColor:"#B3B6E3", height: '100vh'}}>
     <Grid item xs={6} md={8}>
-      <Item>
+      <Item1>
         <ProfileInfo/>
-        </Item>
+        </Item1>
     </Grid>
     <Grid item xs={6} md={4}>
-      <Item>
+      <Item1>
       <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
                     Voices
       </Typography>
@@ -85,7 +93,7 @@ export default function Profile() {
         <Item>Item 3</Item>
       </Stack>
     </Box>
-      </Item>
+      </Item1>
     </Grid>
   </Grid>
   );

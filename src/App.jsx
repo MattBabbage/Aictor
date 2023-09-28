@@ -15,6 +15,10 @@ import Dashboard from "./layouts/dashboard";
 import Profile from './layouts/dashboard/profile';
 import CreateVoice from './layouts/dashboard/createvoice';
 import Loading from './layouts/dashboard/Loading';
+import Voices from "./layouts/dashboard/voices";
+import Actors from "./layouts/dashboard/actors";
+
+import theme from "./style/theme";
 
 const envVariables = process.env;
 const {
@@ -25,16 +29,6 @@ const {
 
 const App = () => {
     const classes = useStyles();
-    const theme = createTheme({
-        palette: {
-          primary: {
-            main: colors.pastel.dgreen,
-          },
-          secondary: {
-            main: colors.pastel.dgreen,
-          },
-        },
-      });
     return (
       <>
       <ThemeProvider theme={theme}>
@@ -45,7 +39,9 @@ const App = () => {
             <Route index element={<Profile />} />
             <Route path="profile" element={<Profile />} />
             <Route path="createvoice" element={<CreateVoice />} />
-            <Route path="*" element={<Profile />} />
+            <Route path="voices" element={<Voices />} />
+            <Route path="actors" element={<Actors />} />
+            <Route path="*" element={<Loading />} />
           </Route>
       </Routes>
       </ThemeProvider>

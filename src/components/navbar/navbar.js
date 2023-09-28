@@ -15,8 +15,12 @@ import AdbIcon from '@mui/icons-material/Adb';
 import useStyles from '../../style/styles';
 import { Dashboard } from '@mui/icons-material';
 import { Link } from "react-router-dom";
+import { ReactComponent as DramaMasks } from '../../assets/dramamasks.svg'
 
-const pages = ['Products', 'Pricing', 'Blog'];
+import { SvgIcon } from "@mui/material";
+import DashboardButton from '../auth/dashboardbutton';
+
+const pages = ['Membership', 'Pricing', 'Safety', 'Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -43,19 +47,17 @@ function ResponsiveAppBar() {
   return (
     <AppBar position="static" >
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <Toolbar >
+          <SvgIcon component={DramaMasks} viewBox="0 0 32 32"  sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontSize: 40 }}/>
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="a"
             href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -77,15 +79,6 @@ function ResponsiveAppBar() {
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
@@ -99,7 +92,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <SvgIcon component={DramaMasks} viewBox="0 0 32 32"  sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, fontSize: 40 }}/>
           <Typography
             variant="h5"
             noWrap
@@ -109,34 +102,23 @@ function ResponsiveAppBar() {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
             Aictor
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+          <Box justifyContent="center" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                variant="contained"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block' }}
-              >
-                {page}
-              </Button>
+              <Button  color="info" variant="text"  sx={{ textTransform: 'none', my: 2, color: 'black', display: 'block', margin:'10px'}} >{page}</Button>
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Link to="/dashboard">
-              <Button variant="contained" startIcon={<Dashboard />}> 
-                        Dashboard
-                    </Button>
-            </Link>
+          <Box sx={{ backgroundColor:'#FFFFFF', flexGrow: 0 }}>
+
+            <DashboardButton/>
           </Box>
         </Toolbar>
       </Container>

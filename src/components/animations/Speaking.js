@@ -11,7 +11,7 @@ export default function Speaking() {
         animationData={lottieJson}
         play
         
-        style={{ width: 400, height: 400 }}
+        style={{ width: 500, height: 500 }}
       />
     )
   }

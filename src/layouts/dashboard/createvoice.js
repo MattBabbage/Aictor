@@ -20,8 +20,9 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useAuth0 } from '@auth0/auth0-react';
 import colors from '../../style/colors';
 import useStyles from '../../style/styles';
-
-
+import TextField from '@mui/material/TextField';
+import TTS from '../../speech/Speech';
+import TextToSpeech from '../../speech/TextToSpeech';
 
 function Copyright(props) {
   return (
@@ -35,6 +36,10 @@ function Copyright(props) {
     </Typography>
   );
 }
+
+const Item = styled(Paper)(({ defaultTheme }) => ({
+
+}));
 
 const drawerWidth = 240;
 
@@ -68,23 +73,35 @@ export default function CreateVoice() {
     }}
   >
     <Toolbar />
-    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-      <Grid container spacing={3}>
-        {/* Chart */}
-        <Grid item xs={12} md={8} lg={9}>
-          <Paper
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              height: 240,
-            }}
-          >
-            Create Voice
-            {user.name}
-          </Paper>
+    <Container maxWidth="lg"  sx={{ mt: 4, mb: 4 }}>
+    <Grid container spacing={3}>
+        <Grid item xs="auto">
+        
+        <Item>
+                <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
+                    STT
+                </Typography>
+                <TTS/>
+            </Item>
         </Grid>
-      </Grid>
+        <Grid item xs="auto">
+            <Item>
+                <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
+                    TTS
+                </Typography>
+                <TextToSpeech/>
+            </Item>
+            
+        </Grid>
+        <Grid item xs="auto">
+        <Item>
+                <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
+                    Get your Audio
+                </Typography>
+                <TextField id="outlined-basic" label="Write Here" variant="outlined" />
+            </Item>
+        </Grid>
+        </Grid>
       <Copyright sx={{ pt: 4 }} />
     </Container>
   </Box>

@@ -32,6 +32,7 @@ import CreateVoice from './dashboard/createvoice';
 import Create from '../components/animations/Create';
 import { Outlet } from 'react-router-dom';
 import Landing from './landing';
+import HomeButton from '../components/auth/homebutton';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -149,13 +150,9 @@ const  Dashboard = () => {
             >
               Dashboard
             </Typography>
-            <LoginButton/>
+            <HomeButton/>
             <LogoutButton/>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
